@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý Sách</title>
+
+  <!-- BƯỚC 0: Nạp CDN -->
+  <link
+    href="../bootstrap-5.0.2-dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- BƯỚC 1: Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fa-solid fa-book"></i> Quản lý Sách
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Sách</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Tác giả</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Thể loại</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Đơn hàng</a></li>
+        </ul>
+        <!-- BƯỚC 6: Tìm kiếm -->
+        <form class="d-flex" id="searchForm">
+          <input
+            id="searchInput"
+            class="form-control me-2"
+            type="search"
+            placeholder="Tìm theo tên sách hoặc tác giả..."
+          />
+          <button class="btn btn-outline-light" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BƯỚC 2: Bảng -->
+  <div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="mb-0">Danh sách sách</h2>
+      <button
+        type="button"
+        class="btn btn-primary"
+        id="btnAdd"
+        data-bs-toggle="modal"
+        data-bs-target="#bookModal"
+      >
+        <i class="fa-solid fa-plus"></i> Thêm sách
+      </button>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th style="width:60px">#</th>
+            <th>Mã sách</th>
+            <th>Bìa</th>
+            <th>Tên sách</th>
+            <th>Tác giả</th>
+            <th>Thể loại</th>
+            <th class="text-center">Năm XB</th>
+            <th class="text-center">Số trang</th>
+            <th class="text-end">Giá</th>
+            <th class="text-center">Trạng thái</th>
+            <th class="text-center" style="width:140px">Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="bookTbody"></tbody>
+      </table>
+    </div>
+
+    <div id="emptyState" class="text-center text-muted py-5 d-none">
+      <i class="fa-solid fa-book-open fa-3x mb-2"></i>
+      <p>Chưa có cuốn sách nào.</p>
+    </div>
+  </div>
+
+  <!-- BƯỚC 3: Modal thêm / sửa -->
+  <div class="modal fade" id="bookModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <form id="bookForm" novalidate>
+          <div class="modal-header">
+            <h5 class="modal-title" id="bookModalLabel">Thêm sách</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <input type="hidden" id="bookId" name="bookId" />
+
+            <div class="row g-3">
+              <!-- Tên sách -->
+              <div class="col-md-8">
+                <label for="title" class="form-label">
+                  Tên sách <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  name="title"
+                  placeholder="VD: Nhà Giả Kim"
+                />
+              </div>
+
+              <!-- Tác giả -->
+              <div class="col-md-4">
+                <label for="author" class="form-label">
+                  Tác giả <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="author"
+                  name="author"
+                  placeholder="VD: Paulo Coelho"
+                />
+              </div>
+
+              <!-- Thể loại -->
+              <div class="col-md-4">
+                <label for="category" class="form-label">
+                  Thể loại <span class="text-danger">*</span>
+                </label>
+                <select class="form-select" id="category" name="category">
+                  <option value="">-- Chọn thể loại --</option>
+                  <option value="Tiểu thuyết">Tiểu thuyết</option>
+                  <option value="Khoa học">Khoa học</option>
+                  <option value="Lịch sử">Lịch sử</option>
+                  <option value="Kỹ năng sống">Kỹ năng sống</option>
+                  <option value="Công nghệ">Công nghệ</option>
+                  <option value="Thiếu nhi">Thiếu nhi</option>
+                </select>
+              </div>
+
+              <!-- Năm XB -->
+              <div class="col-md-4">
+                <label for="year" class="form-label">
+                  Năm XB <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="year"
+                  name="year"
+                  min="1900"
+                  max="2099"
+                  placeholder="VD: 2023"
+                />
+              </div>
+
+              <!-- Số trang -->
+              <div class="col-md-4">
+                <label for="pages" class="form-label">
+                  Số trang <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="pages"
+                  name="pages"
+                  min="1"
+                  placeholder="VD: 250"
+                />
+              </div>
+
+              <!-- Giá -->
+              <div class="col-md-4">
+                <label for="price" class="form-label">
+                  Giá (VNĐ) <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="price"
+                  name="price"
+                  placeholder="VD: 120000"
+                />
+              </div>
+
+              <!-- Trạng thái -->
+              <div class="col-md-4">
+                <label for="status" class="form-label">
+                  Trạng thái <span class="text-danger">*</span>
+                </label>
+                <select class="form-select" id="status" name="status">
+                  <option value="active">Còn bán</option>
+                  <option value="inactive">Ngừng bán</option>
+                </select>
+              </div>
+
+              <!-- Ảnh bìa -->
+              <div class="col-12">
+                <label for="cover" class="form-label">
+                  URL ảnh bìa <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cover"
+                  name="cover"
+                  placeholder="https://..."
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Hủy
+            </button>
+            <button type="submit" class="btn btn-primary">Lưu</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- BƯỚC 5: Modal xóa -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">Xác nhận xóa</h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Bạn có chắc muốn xóa sách
+          <strong id="deleteBookTitle"></strong>?
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Hủy
+          </button>
+          <button type="button" class="btn btn-danger" id="btnConfirmDelete">
+            Xóa
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

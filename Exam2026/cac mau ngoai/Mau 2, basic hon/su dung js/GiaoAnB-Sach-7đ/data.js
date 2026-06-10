@@ -1,0 +1,69 @@
+// data.js
+const bookData = [
+  {
+    id: "BK001",
+    title: "Nhà Giả Kim",
+    author: "Paulo Coelho",
+    category: "Tiểu thuyết",
+    year: 2020,
+    pages: 240,
+    price: 86000,
+    cover: "https://cdn1.fahasa.vn/media/catalog/product/8/9/8935235228454.jpg",
+    status: "active"
+  },
+  {
+    id: "BK002",
+    title: "Sapiens: Lược sử loài người",
+    author: "Yuval Noah Harari",
+    category: "Lịch sử",
+    year: 2022,
+    pages: 520,
+    price: 195000,
+    cover: "https://cdn1.fahasa.vn/media/catalog/product/s/a/sapiens_bao_bia_1.jpg",
+    status: "active"
+  },
+  {
+    id: "BK003",
+    title: "Clean Code",
+    author: "Robert C. Martin",
+    category: "Công nghệ",
+    year: 2021,
+    pages: 464,
+    price: 285000,
+    cover: "https://m.media-amazon.com/images/I/51E2055ZGUL._SX408_BO1,204,203,200_.jpg",
+    status: "active"
+  },
+  {
+    id: "BK004",
+    title: "Đắc Nhân Tâm",
+    author: "Dale Carnegie",
+    category: "Kỹ năng sống",
+    year: 2019,
+    pages: 320,
+    price: 95000,
+    cover: "https://cdn1.fahasa.vn/media/catalog/product/i/m/image_195509_1_36793.jpg",
+    status: "active"
+  },
+  {
+    id: "BK005",
+    title: "Vũ trụ trong vỏ hạt dẻ",
+    author: "Stephen Hawking",
+    category: "Khoa học",
+    year: 2018,
+    pages: 280,
+    price: 120000,
+    cover: "https://cdn1.fahasa.vn/media/catalog/product/v/u/vu_tru_trong_vo_hat_de_1.jpg",
+    status: "inactive"
+  },
+  {
+    id: "BK006",
+    title: "Hoàng tử bé",
+    author: "Antoine de Saint-Exupéry",
+    category: "Thiếu nhi",
+    year: 2020,
+    pages: 96,
+    price: 45000,
+    cover: "https://cdn1.fahasa.vn/media/catalog/product/h/o/hoang_tu_be_bia_mem.jpg",
+    status: "active"
+  }
+];

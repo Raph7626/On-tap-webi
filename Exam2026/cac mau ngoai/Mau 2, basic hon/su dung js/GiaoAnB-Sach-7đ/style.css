@@ -1,0 +1,105 @@
+/* =====================================================
+   Quản lý Sách - style.css
+   ===================================================== */
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: #f5f7fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand { font-weight: 600; letter-spacing: 0.5px; }
+
+/* Ảnh bìa sách */
+.book-cover {
+  width: 50px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Mã sách */
+.book-id {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+/* Tên sách in đậm */
+.book-title { font-weight: 600; }
+
+/* Badge thể loại */
+.category-badge {
+  background: #e7f1ff;
+  color: #084298;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Giá - in đậm */
+.price-cell {
+  font-weight: 600;
+  color: #198754;
+}
+
+/* Badge trạng thái */
+.badge-status {
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.badge-active   { background: #d1e7dd; color: #0f5132; }
+.badge-inactive { background: #f8d7da; color: #842029; }
+
+/* Nút hành động */
+.btn-action {
+  border: none;
+  background: transparent;
+  padding: 4px 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.btn-action:hover { transform: scale(1.2); }
+.btn-edit   { color: #0d6efd; }
+.btn-delete { color: #dc3545; }
+
+/* Modal */
+.modal-header.bg-danger { border-bottom: 1px solid #dc3545; }
+.modal-title { font-weight: 600; }
+
+/* jQuery Validation */
+.error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: block;
+}
+input.error, select.error, textarea.error {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
+}
+input.valid, select.valid, textarea.valid {
+  border-color: #198754 !important;
+}
+
+/* Highlight tìm kiếm */
+mark.highlight { background: #fff3cd; padding: 0 2px; border-radius: 2px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .book-cover { width: 40px; height: 56px; }
+  .modal-dialog { margin: 8px; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+tbody tr { animation: fadeIn 0.25s ease-in; }

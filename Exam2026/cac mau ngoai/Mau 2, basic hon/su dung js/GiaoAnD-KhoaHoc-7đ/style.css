@@ -1,0 +1,125 @@
+/* =====================================================
+   Quản lý Khóa học - style.css
+   ===================================================== */
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: #f0f6fb;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand { font-weight: 600; letter-spacing: 0.5px; }
+
+table thead th {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+table tbody tr:hover { background-color: #e0eef7; cursor: pointer; }
+
+/* Mã KH */
+.course-id {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  color: #0dcaf0;
+}
+
+/* Tên khóa học */
+.course-name { font-weight: 600; }
+
+/* Giảng viên */
+.instructor-cell {
+  color: #495057;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.instructor-cell::before {
+  content: "\f4ff";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #6c757d;
+}
+
+/* Cấp độ badge */
+.level-badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.level-basic     { background: #cff4fc; color: #055160; }
+.level-inter     { background: #fff3cd; color: #664d03; }
+.level-advanced  { background: #f8d7da; color: #842029; }
+
+/* Học phí */
+.fee-cell { font-weight: 700; color: #0dcaf0; }
+
+/* Thời lượng */
+.duration-cell { font-weight: 500; color: #6c757d; }
+
+/* SĐHV */
+.max-students-cell {
+  display: inline-block;
+  background: #e7f1ff;
+  color: #0d6efd;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* Badge trạng thái */
+.badge-status {
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.badge-active   { background: #d1e7dd; color: #0f5132; }
+.badge-inactive { background: #f8d7da; color: #842029; }
+
+/* Nút hành động */
+.btn-action {
+  border: none;
+  background: transparent;
+  padding: 4px 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.btn-action:hover { transform: scale(1.2); }
+.btn-edit   { color: #0d6efd; }
+.btn-delete { color: #dc3545; }
+
+/* Modal */
+.modal-header.bg-info   { border-bottom: 1px solid #0dcaf0; }
+.modal-header.bg-danger { border-bottom: 1px solid #dc3545; }
+.modal-title { font-weight: 600; }
+
+/* jQuery Validation */
+.error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: block;
+}
+input.error, select.error, textarea.error {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
+}
+input.valid, select.valid, textarea.valid {
+  border-color: #198754 !important;
+}
+
+mark.highlight { background: #fff3cd; padding: 0 2px; border-radius: 2px; }
+
+@media (max-width: 768px) {
+  .modal-dialog { margin: 8px; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+tbody tr { animation: fadeIn 0.25s ease-in; }

@@ -1,0 +1,70 @@
+{
+  "employees": [
+    {
+      "id": "NV001",
+      "fullName": "Nguyễn Minh Tuấn",
+      "department": "Phòng Kỹ thuật",
+      "position": "Senior Developer",
+      "salary": 35000000,
+      "startDate": "2020-03-15",
+      "email": "tuan.nm@company.vn",
+      "phone": "0912345678",
+      "status": "active"
+    },
+    {
+      "id": "NV002",
+      "fullName": "Trần Thị Mai",
+      "department": "Phòng Nhân sự",
+      "position": "HR Manager",
+      "salary": 28000000,
+      "startDate": "2019-08-01",
+      "email": "mai.tt@company.vn",
+      "phone": "0987654321",
+      "status": "active"
+    },
+    {
+      "id": "NV003",
+      "fullName": "Lê Văn Hùng",
+      "department": "Phòng Kinh doanh",
+      "position": "Sales Executive",
+      "salary": 18000000,
+      "startDate": "2022-01-10",
+      "email": "hung.lv@company.vn",
+      "phone": "0901234567",
+      "status": "active"
+    },
+    {
+      "id": "NV004",
+      "fullName": "Phạm Thị Hồng",
+      "department": "Phòng Marketing",
+      "position": "Marketing Lead",
+      "salary": 32000000,
+      "startDate": "2021-05-20",
+      "email": "hong.pt@company.vn",
+      "phone": "0938765432",
+      "status": "active"
+    },
+    {
+      "id": "NV005",
+      "fullName": "Đỗ Văn Khánh",
+      "department": "Phòng Kỹ thuật",
+      "position": "Junior Developer",
+      "salary": 15000000,
+      "startDate": "2023-09-01",
+      "email": "khanh.dv@company.vn",
+      "phone": "0976543210",
+      "status": "inactive"
+    },
+    {
+      "id": "NV006",
+      "fullName": "Hoàng Thị Lan",
+      "department": "Phòng Tài chính",
+      "position": "Accountant",
+      "salary": 22000000,
+      "startDate": "2020-11-12",
+      "email": "lan.ht@company.vn",
+      "phone": "0967890123",
+      "status": "active"
+    }
+  ]
+}

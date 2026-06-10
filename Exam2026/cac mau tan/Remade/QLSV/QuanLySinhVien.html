@@ -1,0 +1,127 @@
+<!-- bảng ko có sọc dọc , form 1 cột -->
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sinh Viên</title>
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">EduManage</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Sinh viên</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Lớp học</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <div class="mb-4">
+            <h2 class="fw-bold mb-1">Quản lý sinh viên</h2>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <div class="box p-3">
+                    <h6 class="text-muted mb-1">Tổng sinh viên</h6>
+                    <h3 id="statTotalStudents" class="mb-0 fw-bold">1,250</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box p-3">
+                    <h6 class="text-muted mb-1">Đang học</h6>
+                    <h3 id="statActiveStudents" class="mb-0 fw-bold">1,180</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box p-3">
+                    <h6 class="text-muted mb-1">Cảnh cáo học vụ</h6>
+                    <h3 id="statWarningStudents" class="mb-0 fw-bold">12</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="box p-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h5 class="mb-0 fw-bold">Danh sách sinh viên</h5>
+                </div>
+                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addStudentModal">
+                    Thêm học viên
+                </button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-simple mb-0">
+                    <thead>
+                        <tr>
+                            <th>Mã SV</th>
+                            <th>Họ và tên</th>
+                            <th>Email</th>
+                            <th>Trạng thái</th>
+                            <th class="text-end">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addStudentModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fw-bold text-dark">Thêm sinh viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-3">
+                    <form id="addStudentForm">
+                        <input type="hidden" id="editIndex" value="-1">
+                        <div class="mb-3">
+                            <label class="form-label fw-medium" for="studentId">Mã sinh viên</label>
+                            <input id="studentId" type="text" class="form-control" placeholder="SV001" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium" for="studentName">Họ và tên</label>
+                            <input id="studentName" type="text" class="form-control" placeholder="Nguyễn Văn A" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium" for="studentEmail">Email</label>
+                            <input id="studentEmail" type="email" class="form-control" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium" for="studentStatus">Trạng thái học tập</label>
+                            <select id="studentStatus" class="form-select">
+                                <option value="Đang học">Đang học</option>
+                                <option value="Bảo lưu">Bảo lưu</option>
+                                <option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-end gap-2 mt-3">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Lưu lại</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap-5.0.2-dist/js/jquery-4.0.0.min.js"></script>
+    <script src="../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="data.js"></script>
+</body>
+
+</html>

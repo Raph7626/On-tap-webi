@@ -1,0 +1,61 @@
+body {
+    background-color: #f5f6fa;
+}
+
+/* Thống kê */
+.stat-card {
+    border: none;
+    border-radius: 12px;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* Mỗi dòng task */
+.task-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+.task-item:hover {
+    border-color: #ccc;
+}
+
+/* Màu độ ưu tiên */
+.priority-high   { color: #e53e3e; font-weight: 700; }
+.priority-medium { color: #dd6b20; font-weight: 700; }
+.priority-low    { color: #38a169; font-weight: 700; }
+
+/* Badge trạng thái */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-todo       { background: #edf2f7; color: #718096; }
+.badge-inprogress { background: #fefcbf; color: #975a16; }
+.badge-done       { background: #c6f6d5; color: #276749; }
+
+/* Validation lỗi */
+label.error {
+    color: red;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 2px;
+}
+
+input.error, select.error {
+    border-color: red !important;
+}

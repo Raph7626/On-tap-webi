@@ -1,0 +1,70 @@
+{
+  "courses": [
+    {
+      "id": "KH001",
+      "name": "Lập trình Web Frontend",
+      "instructor": "Nguyễn Văn A",
+      "duration": 48,
+      "fee": 3500000,
+      "startDate": "2025-07-15",
+      "maxStudents": 30,
+      "level": "Cơ bản",
+      "status": "active"
+    },
+    {
+      "id": "KH002",
+      "name": "Lập trình Backend với Node.js",
+      "instructor": "Trần Thị B",
+      "duration": 60,
+      "fee": 4500000,
+      "startDate": "2025-08-01",
+      "maxStudents": 25,
+      "level": "Trung cấp",
+      "status": "active"
+    },
+    {
+      "id": "KH003",
+      "name": "Cơ sở dữ liệu MySQL",
+      "instructor": "Lê Văn C",
+      "duration": 36,
+      "fee": 2800000,
+      "startDate": "2025-07-20",
+      "maxStudents": 35,
+      "level": "Cơ bản",
+      "status": "active"
+    },
+    {
+      "id": "KH004",
+      "name": "React nâng cao",
+      "instructor": "Phạm Thị D",
+      "duration": 40,
+      "fee": 4000000,
+      "startDate": "2025-09-10",
+      "maxStudents": 20,
+      "level": "Nâng cao",
+      "status": "active"
+    },
+    {
+      "id": "KH005",
+      "name": "Thiết kế UI/UX với Figma",
+      "instructor": "Hoàng Văn E",
+      "duration": 32,
+      "fee": 3200000,
+      "startDate": "2025-08-15",
+      "maxStudents": 30,
+      "level": "Trung cấp",
+      "status": "active"
+    },
+    {
+      "id": "KH006",
+      "name": "DevOps cơ bản",
+      "instructor": "Đỗ Thị F",
+      "duration": 50,
+      "fee": 5000000,
+      "startDate": "2025-10-01",
+      "maxStudents": 15,
+      "level": "Nâng cao",
+      "status": "inactive"
+    }
+  ]
+}
