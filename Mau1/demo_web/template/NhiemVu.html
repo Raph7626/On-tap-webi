@@ -1,0 +1,286 @@
+<!-- Bảng dạng row -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Công Việc - UI Custom</title>
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background-color: #f3f4f9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #4f5d75;
+        }
+
+        /* Thống kê Cards */
+        .stat-card {
+            border: none;
+            border-radius: 16px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s;
+        }
+
+        /* Bản sao chính xác UI từ ảnh của bạn (List Task Item) */
+        .task-item {
+            background: #ffffff;
+            border-radius: 24px; /* Bo góc cực đại giống ảnh */
+            padding: 1.25rem 2rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: none;
+            transition: all 0.2s ease;
+        }
+        
+        .task-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .task-label {
+            font-size: 0.85rem;
+            color: #a0aec0;
+            margin-bottom: 2px;
+        }
+
+        .task-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        /* Màu chữ độ ưu tiên giống ảnh */
+        .priority-high { color: #e53e3e; font-weight: bold; }
+        .priority-medium { color: #dd6b20; font-weight: bold; }
+        .priority-low { color: #38a169; font-weight: bold; }
+
+        /* Badge trạng thái bo tròn nhẹ */
+        .status-badge {
+            background-color: #edf2f7;
+            color: #718096;
+            padding: 6px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        /* Giả lập các vòng tròn tiến trình (Circle Progress) sát với ảnh */
+        .circle-progress {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        /* Chưa làm: Vòng tròn xám nhạt */
+        .circle-todo { border: 2px solid #e2e8f0; } 
+        /* Hoàn thành: Vòng tròn tím đậm */
+        .circle-done { border: 2px solid #5a43b7; background: transparent; } 
+        /* Đang làm: Vòng tròn tím chia nửa */
+        .circle-inprogress { 
+            border: 2px solid #5a43b7; 
+            border-left-color: #e2e8f0; 
+            border-top-color: #e2e8f0; 
+            transform: rotate(-45deg);
+        }
+
+        /* Nút hành động sửa, xóa */
+        .action-btn {
+            background: none;
+            border: none;
+            font-size: 1.35rem;
+            padding: 0 6px;
+            transition: color 0.2s;
+        }
+        .btn-edit { color: #2d3748; }
+        .btn-edit:hover { color: #5a43b7; }
+        .btn-delete { color: #e53e3e; }
+        .btn-delete:hover { color: #c53030; }
+
+        /* Custom lại Input Form cho tinh tế */
+        .form-custom {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 10px 16px;
+        }
+        .form-custom:focus {
+            background-color: #fff;
+            border-color: #5a43b7;
+            box-shadow: 0 0 0 3px rgba(90, 67, 183, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-white bg-white shadow-sm mb-4 py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-dark d-flex align-items-center" href="#">
+                <i class="bi bi-grid-1x2-fill text-primary me-2 fs-4"></i> TaskDashboard
+            </a>
+            <div class="ms-auto d-flex align-items-center gap-3">
+                <span class="text-muted d-none d-sm-inline">Chào bạn học viên 👋</span>
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=60" class="rounded-circle" width="35" height="35" alt="Avatar">
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mb-5">
+        
+        <div class="row g-3 mb-5">
+            <div class="col-6 col-md-3">
+                <div class="card stat-card p-3 text-center">
+                    <span class="text-muted small fw-medium">Tổng số việc</span>
+                    <h2 class="fw-bold text-dark mt-1 mb-0">12</h2>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card stat-card p-3 text-center">
+                    <span class="text-secondary small fw-medium">Cần làm</span>
+                    <h2 class="fw-bold text-secondary mt-1 mb-0">5</h2>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card stat-card p-3 text-center">
+                    <span class="text-warning small fw-medium">Đang tiến hành</span>
+                    <h2 class="fw-bold text-warning mt-1 mb-0">3</h2>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card stat-card p-3 text-center">
+                    <span class="text-success small fw-medium">Hoàn thành</span>
+                    <h2 class="fw-bold text-success mt-1 mb-0">4</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="fw-bold text-dark m-0">Nhiệm vụ của tôi</h4>
+            <button class="btn text-white px-4 py-2 fw-semibold shadow-sm" style="background-color: #5a43b7; border-radius: 14px;" data-bs-toggle="modal" data-bs-target="#addTaskModal">
+                <i class="bi bi-plus-lg me-2"></i>Thêm việc mới
+            </button>
+        </div>
+
+        <div class="task-list-wrapper">
+            
+            <div class="card task-item">
+                <div class="row align-items-center g-3 text-center text-md-start">
+                    <div class="col-12 col-md-4">
+                        <div class="task-label">Task</div>
+                        <div class="task-title">Go to gym</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="task-label">Priority</div>
+                        <div class="priority-high">High</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="status-badge">To Do</div>
+                    </div>
+                    <div class="col-4 col-md-2 text-md-center">
+                        <span class="circle-progress circle-todo"></span>
+                    </div>
+                    <div class="col-12 col-md-2 text-md-end">
+                        <button class="action-btn btn-edit me-2" title="Sửa"><i class="bi bi-pencil-square">Sửa</i></button>
+                        <button class="action-btn btn-delete" title="Xóa"><i class="bi bi-trash3">Xóa</i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card task-item">
+                <div class="row align-items-center g-3 text-center text-md-start">
+                    <div class="col-12 col-md-4">
+                        <div class="task-label">Task</div>
+                        <div class="task-title">Read a book</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="task-label">Priority</div>
+                        <div class="priority-low">Low</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="status-badge">Done</div>
+                    </div>
+                    <div class="col-4 col-md-2 text-md-center">
+                        <span class="circle-progress circle-done"></span>
+                    </div>
+                    <div class="col-12 col-md-2 text-md-end">
+                        <button class="action-btn btn-edit me-2" title="Sửa"><i class="bi bi-pencil-square">Sửa</i></button>
+                        <button class="action-btn btn-delete" title="Xóa"><i class="bi bi-trash3">Xóa</i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card task-item">
+                <div class="row align-items-center g-3 text-center text-md-start">
+                    <div class="col-12 col-md-4">
+                        <div class="task-label">Task</div>
+                        <div class="task-title">Go to market</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="task-label">Priority</div>
+                        <div class="priority-medium">Medium</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="status-badge">In Progress</div>
+                    </div>
+                    <div class="col-4 col-md-2 text-md-center">
+                        <span class="circle-progress circle-inprogress"></span>
+                    </div>
+                    <div class="col-12 col-md-2 text-md-end">
+                        <button class="action-btn btn-edit me-2" title="Sửa"><i class="bi bi-pencil-square">Sửa</i></button>
+                        <button class="action-btn btn-delete" title="Xóa"><i class="bi bi-trash3">Xóa</i></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+                <div class="modal-header border-0 pb-0 pt-4 px-4">
+                    <h5 class="modal-title fw-bold text-dark" id="modalTitle">Tạo nhiệm vụ mới</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold text-secondary small">Nội dung công việc</label>
+                            <input type="text" class="form-control form-custom" placeholder="Ví dụ: Học lập trình Web..." required>
+                        </div>
+                        
+                        <div class="row g-3 mb-4">
+                            <div class="col-6">
+                                <label class="form-label fw-semibold text-secondary small">Độ ưu tiên</label>
+                                <select class="form-select form-custom">
+                                    <option value="high" class="text-danger fw-bold">High</option>
+                                    <option value="medium" class="text-warning fw-bold" selected>Medium</option>
+                                    <option value="low" class="text-success fw-bold">Low</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label fw-semibold text-secondary small">Trạng thái hiện tại</label>
+                                <select class="form-select form-custom">
+                                    <option value="todo">To Do</option>
+                                    <option value="inprogress">In Progress</option>
+                                    <option value="done">Done</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2 pt-2">
+                            <button type="button" class="btn btn-light px-4 py-2 fw-medium" style="border-radius: 12px;" data-bs-dismiss="modal">Hủy bỏ</button>
+                            <button type="submit" class="btn text-white px-4 py-2 fw-medium" style="background-color: #5a43b7; border-radius: 12px;">Thêm mới</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
