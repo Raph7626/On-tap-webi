@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Phòng Ký Túc Xá</title>
+    <link rel="stylesheet" href="css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar bg-white shadow-sm mb-4">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a class="navbar-brand fw-bold text-primary" href="#">🏢 Dormitory Manager</a>
+                <span class="text-muted small fw-bold">Học viên: Hoàng Ngọc Tú — Lớp: 66HTTT1</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mb-5">
+
+        <div class="row g-3 mb-4">
+            <div class="col-6 col-md-3">
+                <div class="card stat-card p-3 text-center">
+                    <div class="fs-2 fw-bold text-dark">50</div>
+                    <div class="text-muted small">Tổng số phòng</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card stat-card p-3 text-center">
+                    <div class="fs-2 fw-bold text-secondary">328</div>
+                    <div class="text-muted small">Sinh viên đang ở</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card stat-card p-3 text-center">
+                    <div class="fs-2 fw-bold text-warning">3</div>
+                    <div class="text-muted small">Phòng cần sửa chữa</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card stat-card p-3 text-center">
+                    <div class="fs-2 fw-bold text-success">8</div>
+                    <div class="text-muted small">Phòng trống</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card task-form border-0 shadow-sm rounded-3">
+                    <div class="card-header bg-primary text-white fw-bold py-3">
+                        ➕ Thêm phòng mới
+                    </div>
+                    <div class="card-body p-3">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Mã phòng</label>
+                                <input type="text" class="form-control" placeholder="Ví dụ: P.305" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Loại phòng</label>
+                                <select class="form-select">
+                                    <option value="">-- Chọn loại phòng --</option>
+                                    <option value="1">Phòng Nam (Tiêu chuẩn)</option>
+                                    <option value="2">Phòng Nữ (Tiêu chuẩn)</option>
+                                    <option value="3">Phòng Nam (Chất lượng cao)</option>
+                                    <option value="4">Phòng Nữ (Chất lượng cao)</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Số SV tối đa</label>
+                                <input type="number" class="form-control" min="1" max="10" value="8" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Giá thuê / tháng</label>
+                                <input type="number" class="form-control" placeholder="Ví dụ: 1200000" />
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 fw-bold py-2 mt-2">
+                                Lưu phòng
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <h4 class="fw-bold mb-4 text-dark">Danh sách phòng hiện tại (3)</h4>
+
+                <div class="card task-item task-item-high border-0 shadow-sm rounded-3 mb-3">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h6 class="fw-bold mb-2">P.101 — Phòng Nam (Tiêu chuẩn)</h6>
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="badge bg-success">7/8</span>
+                                    <span class="badge bg-secondary">1.200.000 đ/tháng</span>
+                                    <span class="badge bg-info text-dark">Đang ở</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-md-end text-start mt-3 mt-md-0">
+                                <button class="btn btn-sm btn-outline-secondary me-2">✏️ Sửa</button>
+                                <button class="btn btn-sm btn-outline-danger">🗑️ Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card task-item task-item-high border-0 shadow-sm rounded-3 mb-3">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h6 class="fw-bold mb-2">P.102 — Phòng Nữ (Chất lượng cao)</h6>
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="badge bg-danger text-white">4/4</span>
+                                    <span class="badge bg-secondary">2.500.000 đ/tháng</span>
+                                    <span class="badge bg-warning text-dark">Đầy</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-md-end text-start mt-3 mt-md-0">
+                                <button class="btn btn-sm btn-outline-secondary me-2">✏️ Sửa</button>
+                                <button class="btn btn-sm btn-outline-danger">🗑️ Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card task-item task-item-medium border-0 shadow-sm rounded-3 mb-3">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h6 class="fw-bold mb-2">P.201 — Phòng Nam (Tiêu chuẩn)</h6>
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="badge bg-light text-dark border">0/8</span>
+                                    <span class="badge bg-secondary">1.200.000 đ/tháng</span>
+                                    <span class="badge bg-success">Trống</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-md-end text-start mt-3 mt-md-0">
+                                <button class="btn btn-sm btn-outline-secondary me-2">✏️ Sửa</button>
+                                <button class="btn btn-sm btn-outline-danger">🗑️ Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addRoomModal" tabindex="-1" aria-labelledby="addRoomModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header text-white" style="background-color: #0d9488;">
+                    <h5 class="modal-title fw-bold" id="addRoomModalLabel"><i class="bi bi-house-plus me-2"></i>Thêm
+                        Phòng Ký Túc Xá Mới</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">Mã số phòng</label>
+                                <input type="text" class="form-control" placeholder="Ví dụ: P.305" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">Loại phòng</label>
+                                <select class="form-select">
+                                    <option value="1">Phòng Nam (Tiêu chuẩn)</option>
+                                    <option value="2">Phòng Nữ (Tiêu chuẩn)</option>
+                                    <option value="3">Phòng Nam (Chất lượng cao)</option>
+                                    <option value="4">Phòng Nữ (Chất lượng cao)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">Số lượng sinh viên tối đa</label>
+                                <input type="number" class="form-control" min="1" max="10" value="8" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">Giá thuê / tháng (VNĐ)</label>
+                                <input type="number" class="form-control" placeholder="Ví dụ: 1200000" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-medium">Ghi chú thiết bị (nếu có)</label>
+                                <textarea class="form-control" rows="2"
+                                    placeholder="Ví dụ: Điều hòa, bình nóng lạnh hoạt động tốt..."></textarea>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end gap-2 mt-4">
+                            <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Hủy bỏ</button>
+                            <button type="submit" class="btn text-white px-4" style="background-color: #0d9488;">Lưu
+                                thông tin</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="css/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

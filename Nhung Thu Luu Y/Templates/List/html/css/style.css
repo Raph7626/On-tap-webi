@@ -1,0 +1,99 @@
+/* Global Styles */
+body {
+    background-color: #f9fafb;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Stat Cards */
+.stat-card {
+    border-radius: 12px;
+    border: none;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Task Form Card */
+.task-form {
+    border-radius: 16px;
+}
+
+.task-form .card-header {
+    border-radius: 16px 16px 0 0;
+}
+
+.task-form .form-control,
+.task-form .form-select {
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.task-form .form-control:focus,
+.task-form .form-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Task Items */
+.task-item {
+    border-radius: 16px;
+    border: none;
+    border-left: 5px solid #cbd5e1;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.task-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.task-item .card-body {
+    padding: 1.5rem;
+}
+
+.task-item h6 {
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+}
+
+/* Priority Colors - Left Border */
+.task-item-high {
+    border-left-color: #ef4444;
+}
+
+.task-item-high:hover {
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+}
+
+.task-item-medium {
+    border-left-color: #f97316;
+}
+
+.task-item-medium:hover {
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
+}
+
+.task-item-low {
+    border-left-color: #22c55e;
+}
+
+.task-item-low:hover {
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .task-item .card-body {
+        padding: 1rem;
+    }
+
+    .task-item h6 {
+        font-size: 0.95rem;
+    }
+}

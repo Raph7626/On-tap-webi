@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sinh Viên</title>
+    <link rel="stylesheet" href="css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar bg-primary shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-white" href="#">📚 Quản Lý Sinh Viên</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container my-4">
+        <div class="mb-4">
+            <h5 class="mb-3">Lọc theo trạng thái:</h5>
+            <div class="d-flex gap-2 flex-wrap">
+                <button class="btn btn-outline-primary">Tất cả</button>
+                <button class="btn btn-outline-success">Đang học</button>
+                <button class="btn btn-outline-warning">Tạm dừng</button>
+                <button class="btn btn-outline-info">Tốt nghiệp</button>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header bg-light py-3">
+                        <h5 class="mb-0">Thêm sinh viên mới</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label fw-medium">Mã SV</label>
+                                <input type="text" class="form-control" placeholder="SV006" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-medium">Họ và tên</label>
+                                <input type="text" class="form-control" placeholder="Nhập họ tên" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-medium">Email</label>
+                                <input type="email" class="form-control" placeholder="name@mail.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-medium">Trạng thái</label>
+                                <select class="form-select" required>
+                                    <option value="">Chọn trạng thái</option>
+                                    <option value="Đang học">Đang học</option>
+                                    <option value="Tạm dừng">Tạm dừng</option>
+                                    <option value="Tốt nghiệp">Tốt nghiệp</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Lưu thông tin</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header bg-light py-3">
+                        <h5 class="mb-0">Danh sách sinh viên</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0" id="studentTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Mã SV</th>
+                                        <th>Họ và Tên</th>
+                                        <th>Email</th>
+                                        <th>Trạng thái</th>
+                                        <th style="width: 120px;">Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>SV001</td>
+                                        <td>Nguyễn Văn A</td>
+                                        <td>vana@mail.com</td>
+                                        <td><span class="badge bg-success">Đang học</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary">Sửa</button>
+                                            <button class="btn btn-sm btn-outline-danger">Xóa</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>SV002</td>
+                                        <td>Trần Thị B</td>
+                                        <td>tranb@mail.com</td>
+                                        <td><span class="badge bg-success">Đang học</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary">Sửa</button>
+                                            <button class="btn btn-sm btn-outline-danger">Xóa</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>SV003</td>
+                                        <td>Lê Văn C</td>
+                                        <td>levanc@mail.com</td>
+                                        <td><span class="badge bg-warning">Tạm dừng</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary">Sửa</button>
+                                            <button class="btn btn-sm btn-outline-danger">Xóa</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>SV004</td>
+                                        <td>Phạm Minh D</td>
+                                        <td>phammind@mail.com</td>
+                                        <td><span class="badge bg-success">Đang học</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary">Sửa</button>
+                                            <button class="btn btn-sm btn-outline-danger">Xóa</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>SV005</td>
+                                        <td>Hoàng Thị E</td>
+                                        <td>hoanthe@mail.com</td>
+                                        <td><span class="badge bg-info">Tốt nghiệp</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-secondary">Sửa</button>
+                                            <button class="btn btn-sm btn-outline-danger">Xóa</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="css/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

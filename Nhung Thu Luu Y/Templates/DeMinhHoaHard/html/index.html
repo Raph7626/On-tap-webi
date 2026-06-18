@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý sinh viên - khóa học</title>
+
+  <!-- Bootstrap 5 (local, không phụ thuộc internet) -->
+  <link rel="stylesheet" href="css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER (Navbar Bootstrap) ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container py-2">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <span class="brand-mark">Student TLU Edu Track</span>
+        <small class="text-white-50">Hệ thống quản lý sinh viên &amp; khóa học</small>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Chuyển đổi điều hướng"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Sinh viên</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Khóa học</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Báo cáo</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+
+    <!-- ===== THỐNG KÊ NHANH ===== -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3">
+        <div class="card card-edu stat-card h-100">
+          <div class="card-body">
+            <div class="stat-label">Tổng sinh viên</div>
+            <div class="stat-value">5</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card card-edu stat-card h-100">
+          <div class="card-body">
+            <div class="stat-label">Đang học</div>
+            <div class="stat-value text-dang-hoc">2</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card card-edu stat-card h-100">
+          <div class="card-body">
+            <div class="stat-label">Đã hoàn thành</div>
+            <div class="stat-value text-da-hoan-thanh">2</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card card-edu stat-card h-100">
+          <div class="card-body">
+            <div class="stat-label">Điểm TB chung</div>
+            <div class="stat-value">7.98</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== NỘI DUNG CHÍNH: BẢNG (TRÁI) + FORM (PHẢI) ===== -->
+    <div class="row g-4">
+
+      <!-- ----- CỘT TRÁI: TÌM KIẾM/LỌC + BẢNG DANH SÁCH ----- -->
+      <div class="col-lg-8">
+        <div class="section-title d-flex align-items-center gap-2 mb-3">
+          <h2 class="mb-0">Danh sách sinh viên</h2>
+          <span class="badge rounded-pill badge-tag">5 sinh viên</span>
+        </div>
+
+        <!-- ===== TÌM KIẾM & LỌC TRẠNG THÁI (TĨNH) ===== -->
+        <div class="card card-edu p-3 mb-3">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-7">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Tìm theo Mã SV hoặc Họ tên..."
+                  aria-label="Tìm kiếm sinh viên"
+                />
+                <button class="btn btn-outline-primary" type="button">Tìm</button>
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="btn-group w-100" role="group" aria-label="Lọc theo trạng thái">
+                <button type="button" class="btn btn-primary active mx-50 ">Tất cả</button>
+                <button type="button" class="btn btn-outline-success">Đang học</button>
+                <button type="button" class="btn btn-outline-info">Đã hoàn thành</button>
+                <button type="button" class="btn btn-outline-warning">Tạm ngừng</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-edu">
+          <div class="table-responsive">
+            <table class="table table-edu align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Mã SV</th>
+                  <th>Họ và tên</th>
+                  <th>Khóa học</th>
+                  <th>Điểm TB</th>
+                  <th>Trạng thái</th>
+                  <th>Hành động</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>SV001</td>
+                  <td>Nguyễn Văn An</td>
+                  <td>Lập trình Web (CSE391)</td>
+                  <td>8.5</td>
+                  <td>
+                    <span class="badge bg-info text-dark">Đang học</span>
+                  </td>
+                  <td class="row-actions">
+                    <a href="#" class="text-primary">Sửa</a>
+                    <a href="#" class="text-danger">Xóa</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>SV002</td>
+                  <td>Trần Thị Bích</td>
+                  <td>Cấu trúc dữ liệu &amp; Giải thuật</td>
+                  <td>9.2</td>
+                  <td>
+                    <span class="badge bg-success">Đã hoàn thành</span>
+                  </td>
+                  <td class="row-actions">
+                    <a href="#" class="text-primary">Sửa</a>
+                    <a href="#" class="text-danger">Xóa</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>SV003</td>
+                  <td>Lê Hoàng Cường</td>
+                  <td>Cơ sở dữ liệu</td>
+                  <td>7.0</td>
+                  <td>
+                    <span class="badge bg-info text-dark">Đang học</span>
+                  </td>
+                  <td class="row-actions">
+                    <a href="#" class="text-primary">Sửa</a>
+                    <a href="#" class="text-danger">Xóa</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>SV004</td>
+                  <td>Phạm Thị Diệu</td>
+                  <td>Mạng máy tính</td>
+                  <td>6.4</td>
+                  <td>
+                    <span class="badge bg-warning text-dark">Tạm ngừng</span>
+                  </td>
+                  <td class="row-actions">
+                    <a href="#" class="text-primary">Sửa</a>
+                    <a href="#" class="text-danger">Xóa</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>SV005</td>
+                  <td>Đỗ Minh Khoa</td>
+                  <td>Lập trình Web (CSE391)</td>
+                  <td>8.8</td>
+                  <td>
+                    <span class="badge bg-success">Đã hoàn thành</span>
+                  </td>
+                  <td class="row-actions">
+                    <a href="#" class="text-primary">Sửa</a>
+                    <a href="#" class="text-danger">Xóa</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ----- CỘT PHẢI: FORM NHẬP LIỆU ----- -->
+      <div class="col-lg-4">
+        <div class="section-title d-flex align-items-center gap-2 mb-3">
+          <h2 class="mb-0">Thêm sinh viên</h2>
+          <span class="badge rounded-pill badge-tag">Biểu mẫu</span>
+        </div>
+
+        <form class="card card-edu p-4">
+          <div class="mb-3">
+            <label for="ho-ten" class="form-label">Họ và tên</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ho-ten"
+              placeholder="Ví dụ: Nguyễn Văn An"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="khoa-hoc" class="form-label">Khóa học</label>
+            <select class="form-select" id="khoa-hoc">
+              <option value="">-- Chọn khóa học --</option>
+              <option value="web">Lập trình Web (CSE391)</option>
+              <option value="ctdl">Cấu trúc dữ liệu &amp; Giải thuật</option>
+              <option value="csdl">Cơ sở dữ liệu</option>
+              <option value="mmt">Mạng máy tính</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="diem" class="form-label">Điểm trung bình</label>
+            <input
+              type="number"
+              class="form-control"
+              id="diem"
+              step="0.1"
+              min="0"
+              max="10"
+              placeholder="0 - 10"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="trang-thai" class="form-label">Trạng thái</label>
+            <select class="form-select" id="trang-thai">
+              <option value="dang-hoc">Đang học</option>
+              <option value="da-hoan-thanh">Đã hoàn thành</option>
+              <option value="tam-ngung">Tạm ngừng</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="ghi-chu" class="form-label">Ghi chú</label>
+            <textarea
+              class="form-control"
+              id="ghi-chu"
+              rows="2"
+              placeholder="Ghi chú thêm (nếu có)"
+            ></textarea>
+          </div>
+
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-navy">Thêm sinh viên</button>
+            <button type="reset" class="btn btn-outline-navy">Làm mới</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-edu text-center py-3 mt-4">
+    © 2026 EduTrack - Bài tập minh họa CSE391 (Câu 1: HTML/CSS + Bootstrap)
+  </footer>
+
+  <!-- Bootstrap JS bundle (local, cho navbar toggle, dropdown...) -->
+  <script src="css/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
