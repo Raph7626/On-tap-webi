@@ -19,6 +19,18 @@ function StudentForm() {
             />
           </div>
 
+           <div className="mb-3">
+            <label htmlFor="gioi-tinh" className="form-label d-block">Giới tính</label>
+            <div className="form-check">
+            <input className="form-check-input" type="radio" name="gioi-tinh" id="nam" />
+            <label htmlFor="nam" className="form-check-label"> Nam </label>
+            </div>
+            <div className="form-check">
+            <input className="form-check-input" type="radio" name="gioi-tinh" id="nu" />
+            <label htmlFor="nu" className="form-check-label"> Nữ </label>
+            </div>
+          </div>
+
           <div className="mb-3">
             <label htmlFor="khoa-hoc" className="form-label">Khóa học</label>
             <select className="form-select" id="khoa-hoc">
