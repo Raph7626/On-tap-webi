@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý hoạt động ngoại khóa</title>
+  <link rel="stylesheet" href="css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success px-3">
+    <div class="d-flex align-items-center gap-2">
+      <span class="bg-white text-success fw-bold px-2 py-1 rounded">TLU</span>
+      <div>
+        <div class="fw-semibold text-white">Quản lý hoạt động ngoại khóa</div>
+        <small class="text-white-50">Đăng ký và theo dõi hoạt động sinh viên</small>
+      </div>
+    </div>
+    <div class="ms-auto d-flex gap-1">
+      <a href="#" class="nav-link text-white active">Hoạt động</a>
+      <a href="#" class="nav-link text-white-50">Sinh viên</a>
+      <a href="#" class="nav-link text-white-50">Lịch trình</a>
+      <a href="#" class="nav-link text-white-50">Thống kê</a>
+    </div>
+  </nav>
+
+  <!-- THỐNG KÊ -->
+  <div class="row g-0 bg-white border-bottom">
+    <div class="col text-center py-3 border-end">
+      <div class="fs-3 fw-bold text-success">5</div>
+      <small class="text-muted">TỔNG HOẠT ĐỘNG</small>
+    </div>
+    <div class="col text-center py-3 border-end">
+      <div class="fs-3 fw-bold text-success">2</div>
+      <small class="text-muted">SẮP DIỄN RA</small>
+    </div>
+    <div class="col text-center py-3">
+      <div class="fs-3 fw-bold text-success">1</div>
+      <small class="text-muted">HOÀN THÀNH</small>
+    </div>
+  </div>
+
+  <!-- NỘI DUNG CHÍNH: DỌC -->
+  <div class="container-fluid p-3">
+
+    <!-- FORM THÊM Ở TRÊN -->
+    <div class="card mb-3">
+      <div class="card-body">
+        <h6 class="fw-semibold">Đăng ký hoạt động mới</h6>
+        <small class="text-muted">Nhập thông tin hoạt động</small>
+
+        <div class="row g-3 mt-1">
+          <div class="col-6">
+            <label class="form-label">Tên hoạt động</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Nhập tên hoạt động" />
+          </div>
+          <div class="col-6">
+            <label class="form-label">Câu lạc bộ</label>
+            <select class="form-select form-select-sm">
+              <option value="">Chọn câu lạc bộ</option>
+              <option>CLB IT</option>
+              <option>CLB Thể thao</option>
+              <option>CLB Nghệ thuật</option>
+              <option>CLB Tình nguyện</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Hình thức</label>
+            <div class="d-flex gap-3 pt-1">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="hinhthuc" id="tructiep" checked>
+                <label class="form-check-label" for="tructiep">Trực tiếp</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="hinhthuc" id="tructuyen">
+                <label class="form-check-label" for="tructuyen">Trực tuyến</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Trạng thái</label>
+            <select class="form-select form-select-sm">
+              <option>Sắp diễn ra</option>
+              <option>Đang diễn ra</option>
+              <option>Hoàn thành</option>
+              <option>Đã hủy</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-success btn-sm mt-3">Thêm hoạt động</button>
+      </div>
+    </div>
+
+    <!-- BẢNG DANH SÁCH Ở DƯỚI -->
+    <div class="card">
+      <div class="card-body">
+        <h6 class="fw-semibold">Danh sách hoạt động</h6>
+        <small class="text-muted">Tìm kiếm và lọc theo trạng thái</small>
+
+        <div class="d-flex justify-content-between align-items-center mt-3 mb-2 flex-wrap gap-2">
+          <input type="text" class="form-control form-control-sm" style="width:240px" placeholder="Tìm tên hoạt động, CLB..." />
+          <div class="d-flex gap-1">
+            <button class="btn btn-sm btn-success">Tất cả</button>
+            <button class="btn btn-sm btn-outline-secondary">Sắp diễn ra</button>
+            <button class="btn btn-sm btn-outline-secondary">Đang diễn ra</button>
+            <button class="btn btn-sm btn-outline-secondary">Hoàn thành</button>
+          </div>
+        </div>
+
+        <table class="table table-sm table-hover">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>HOẠT ĐỘNG</th>
+              <th>CÂU LẠC BỘ</th>
+              <th>HÌNH THỨC</th>
+              <th>TRẠNG THÁI</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <tr>
+              <td>1</td><td>Hackathon 2026</td><td>CLB IT</td><td>Trực tiếp</td>
+              <td><span class="badge bg-warning text-dark">Sắp diễn ra</span></td>
+            </tr>
+            <tr>
+              <td>2</td><td>Workshop UI/UX</td><td>CLB IT</td><td>Trực tuyến</td>
+              <td><span class="badge bg-info text-dark">Đang diễn ra</span></td>
+            </tr>
+            <tr>
+              <td>3</td><td>Ngày hội thể thao</td><td>CLB Thể thao</td><td>Trực tiếp</td>
+              <td><span class="badge bg-success">Hoàn thành</span></td>
+            </tr>
+            <tr>
+              <td>4</td><td>Triển lãm tranh</td><td>CLB Nghệ thuật</td><td>Trực tiếp</td>
+              <td><span class="badge bg-warning text-dark">Sắp diễn ra</span></td>
+            </tr>
+            <tr>
+              <td>5</td><td>Ngày hội tình nguyện</td><td>CLB Tình nguyện</td><td>Trực tiếp</td>
+              <td><span class="badge bg-danger">Đã hủy</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    </div>
+
+    <script src="css/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="data/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
