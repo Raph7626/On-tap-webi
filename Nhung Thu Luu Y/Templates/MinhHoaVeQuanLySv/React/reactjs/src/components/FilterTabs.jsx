@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 function FilterTabs() {
     return (
        <>
-       <div class="card card-edu p-3 mb-3">
+  
         <div className="section-title d-flex align-items-center gap-2 mb-3">
           <h2 className="mb-0">Danh sách sinh viên</h2>
           <span className="badge rounded-pill badge-tag">5 sinh viên</span>
@@ -21,7 +21,7 @@ function FilterTabs() {
                   <button type="button" className="btn btn-outline-warning">Tạm ngừng</button>
                 </div>
               </div>
-          </div>
+
         </div>
         </div>
        </>

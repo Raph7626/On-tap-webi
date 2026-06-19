@@ -13,7 +13,7 @@ function StudentRow() {
                     <span className="badge bg-info text-dark">Đang học</span>
                   </td>
                   <td className="row-actions">
-                    <a href="#" className="text-primary">Sửa</a>
+                    <a href="#" className="text-primary">Sửa </a>
                     <a href="#" className="text-danger">Xóa</a>
                   </td>
                 </tr>
@@ -27,7 +27,7 @@ function StudentRow() {
                     <span className="badge bg-success">Đã hoàn thành</span>
                   </td>
                   <td className="row-actions">
-                    <a href="#" className="text-primary">Sửa</a>
+                    <a href="#" className="text-primary">Sửa </a>
                     <a href="#" className="text-danger">Xóa</a>
                   </td>
                 </tr>
@@ -41,7 +41,7 @@ function StudentRow() {
                     <span className="badge bg-info text-dark">Đang học</span>
                   </td>
                   <td className="row-actions">
-                    <a href="#" className="text-primary">Sửa</a>
+                    <a href="#" className="text-primary">Sửa </a>
                     <a href="#" className="text-danger">Xóa</a>
                   </td>
                 </tr>
@@ -55,7 +55,7 @@ function StudentRow() {
                     <span className="badge bg-warning text-dark">Tạm ngừng</span>
                   </td>
                   <td className="row-actions">
-                    <a href="#" className="text-primary">Sửa</a>
+                    <a href="#" className="text-primary">Sửa </a>
                     <a href="#" className="text-danger">Xóa</a>
                   </td>
                 </tr>
@@ -69,7 +69,7 @@ function StudentRow() {
                     <span className="badge bg-success">Đã hoàn thành</span>
                   </td>
                   <td className="row-actions">
-                    <a href="#" className="text-primary">Sửa</a>
+                    <a href="#" className="text-primary">Sửa </a>
                     <a href="#" className="text-danger">Xóa</a>
                   </td>
                 </tr>
