@@ -39,8 +39,6 @@ function ShipmentForm() {
                 </div>
               </div>
 
-              for
-
               <div className="mb-3">
                 <label className="form-label">Trạng thái</label>
                 <select className="form-select form-select-sm">

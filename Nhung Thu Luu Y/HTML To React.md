@@ -75,15 +75,6 @@ function TaskCard() {
 <br />
 ```
 
-### Comment
-```jsx
-<!-- HTML -->
-<!-- Đây là comment -->
-
-/* React JSX */
-{/* Đây là comment */}
-```
-
 ### Fragment (Return Nhiều Element)
 ```jsx
 // ❌ Sai - không thể return 2 thẻ cùng lúc
@@ -108,35 +99,6 @@ function Component() {
 ---
 
 ## 2. Những Thứ Chỉ Dùng Khi Có JavaScript
-
-### Event Handlers (onclick → onClick)
-```html
-<!-- HTML -->
-<button onclick="handleClick()">Nhấn tôi</button>
-
-<!-- React JSX (khi có xử lý sự kiện) -->
-<button onClick={() => handleClick()}>Nhấn tôi</button>
-```
-
-### Boolean Attributes
-```html
-<!-- HTML -->
-<input disabled>
-<form novalidate>
-
-<!-- React JSX -->
-<input disabled={true} />
-<form noValidate>
-```
-
-### Event Listeners
-```jsx
-onChange={() => setValue(e.target.value)}
-onSubmit={(e) => { e.preventDefault(); ... }}
-onBlur={() => validate()}
-```
-
----
 
 ## 3. Lưu Ý Khi Convert
 
