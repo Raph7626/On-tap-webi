@@ -1,5 +1,10 @@
 Bo index.css di
 
+form trái, bảng phải còn nếu form phải bảng trái thì 4 trên 8 dưới:
+<div class="col-8">...</div>
+
+<div class="col-4">...</div>
+
 ✅ class → className
 ✅ for → htmlFor
 ✅ Tất cả thẻ phải đóng: <br />, <img />
