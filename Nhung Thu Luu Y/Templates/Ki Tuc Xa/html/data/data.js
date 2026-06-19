@@ -25,12 +25,28 @@ const initialRooms = [
     status: "Đầy" 
   },
   {
-    id: "P.201",
-    type: "Phòng Nam (Tiêu chuẩn)",
+    id: "P.202",
+    type: "Phòng Nữ (Tiêu chuẩn)",
     currentOccupants: 0,
     maxOccupants: 8,
-    price: 1200000,
+    price: 1300000,
     status: "Trống" 
+  },
+  {
+    id: "P.302",
+    type: "Phòng Nam (Chất lượng cao)",
+    currentOccupants: 3,
+    maxOccupants: 8,
+    price: 2600000,
+    status: "Đang ở" 
+  },
+  {
+    id: "P.201",
+    type: "Phòng Nam (Tiêu chuẩn)",
+    currentOccupants: 5,
+    maxOccupants: 5,
+    price: 1400000,
+    status: "Đầy" 
   }
 ];
 

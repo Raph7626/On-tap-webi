@@ -2,13 +2,13 @@
 const tasks = [
     {
         id: 1,
-        name: "Thực hành xây dựng Layout UI bằng Figma Auto Layout",
+        name: "Thực hành xây dựng Website",
         priority: "high",
         status: "done"
     },
     {
         id: 2,
-        name: "Thiết kế sơ đồ tuần tự (Sequence Diagram) hệ thống y tế",
+        name: "Thiết kế sơ đồ tuần tự (Sequence Diagram)",
         priority: "high",
         status: "inprogress"
     },
@@ -20,13 +20,13 @@ const tasks = [
     },
     {
         id: 4,
-        name: "Ôn tập lý thuyết Triết học Mác - Lênin chương Hình thái kinh tế",
+        name: "Ôn tập lý thuyết Triết học Mác - Lênin",
         priority: "low",
         status: "todo"
     },
     {
         id: 5,
-        name: "Tối ưu hóa SEO và áp dụng thẻ ngữ nghĩa Semantic HTML5",
+        name: "Làm bài tập lớn môn Mạng máy tính",
         priority: "medium",
         status: "inprogress"
     }
