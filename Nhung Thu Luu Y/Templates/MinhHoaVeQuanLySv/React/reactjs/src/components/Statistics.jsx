@@ -2,7 +2,7 @@ import React from "react";
 
 function Statistics() {
     return (
-    <div className="row g-3 mb-4">
+      <>
       <div className="col-6 col-md-3">
         <div className="card card-edu stat-card h-100">
           <div className="card-body">
@@ -35,8 +35,7 @@ function Statistics() {
           </div>
         </div>
       </div>
-    </div>
-
+    </>
     );
 }
 

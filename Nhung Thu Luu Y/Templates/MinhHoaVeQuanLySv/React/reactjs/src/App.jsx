@@ -15,13 +15,18 @@ function App() {
     <>
       <Header />
       <div className="container my-4">
-        <Statistics />
+        <div class="row g-3 mb-4">
+          <Statistics />
+        </div>
+
         <div className="row g-4">
           <div className="col-lg-8">
             <FilterTabs />
             <StudentTable />
           </div>
-          <StudentForm />
+          <div class="col-lg-4">
+            <StudentForm />
+          </div>
         </div>
       </div>
     </>

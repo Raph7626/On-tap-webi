@@ -2,7 +2,7 @@ import React from 'react';
 
 function StudentForm() {
     return (
-        <div className="col-lg-4">
+        <>
         <div className="section-title d-flex align-items-center gap-2 mb-3">
           <h2 className="mb-0">Thêm sinh viên</h2>
           <span className="badge rounded-pill badge-tag">Biểu mẫu</span>
@@ -79,8 +79,7 @@ function StudentForm() {
             <button type="reset" className="btn btn-outline-navy">Làm mới</button>
           </div>
         </form>
-      </div>
-
+    </>
     );
 }
 
