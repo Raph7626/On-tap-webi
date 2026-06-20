@@ -35,8 +35,8 @@ function StudentForm() {
             <label htmlFor="khoa-hoc" className="form-label">Khóa học</label>
             <select className="form-select" id="khoa-hoc">
               <option value="">-- Chọn khóa học --</option>
-              <option value="web">Lập trình Web (CSE391)</option>
-              <option value="ctdl">Cấu trúc dữ liệu &amp; Giải thuật</option>
+              <option value="web">Lập trình Web</option>
+              <option value="ctdl">Cấu trúc dữ liệu và giải thuật</option>
               <option value="csdl">Cơ sở dữ liệu</option>
               <option value="mmt">Mạng máy tính</option>
             </select>

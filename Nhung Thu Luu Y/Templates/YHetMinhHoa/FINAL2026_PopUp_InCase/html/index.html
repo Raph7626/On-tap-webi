@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý hoạt động ngoại khóa</title>
+  <link rel="stylesheet" href="css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success px-3">
+    <div class="d-flex align-items-center gap-2">
+      <span class="bg-white text-success fw-bold px-2 py-1 rounded">TLU</span>
+      <div>
+        <div class="fw-semibold text-white">Quản lý hoạt động ngoại khóa</div>
+        <small class="text-white-50">Đăng ký và theo dõi hoạt động sinh viên</small>
+      </div>
+    </div>
+    <div class="ms-auto d-flex gap-1">
+      <a href="#" class="nav-link text-white active">Hoạt động</a>
+      <a href="#" class="nav-link text-white-50">Sinh viên</a>
+      <a href="#" class="nav-link text-white-50">Lịch trình</a>
+      <a href="#" class="nav-link text-white-50">Thống kê</a>
+    </div>
+  </nav>
+
+  <!-- THỐNG KÊ -->
+  <div class="row g-0 bg-white border-bottom">
+    <div class="col text-center py-3 border-end">
+      <div class="fs-3 fw-bold text-success">5</div>
+      <small class="text-muted">TỔNG HOẠT ĐỘNG</small>
+    </div>
+    <div class="col text-center py-3 border-end">
+      <div class="fs-3 fw-bold text-success">2</div>
+      <small class="text-muted">SẮP DIỄN RA</small>
+    </div>
+    <div class="col text-center py-3">
+      <div class="fs-3 fw-bold text-success">1</div>
+      <small class="text-muted">HOÀN THÀNH</small>
+    </div>
+  </div>
+
+  <!-- NỘI DUNG CHÍNH -->
+  <div class="container-fluid p-3">
+
+    <!-- THANH TIÊU ĐỀ + NÚT MỞ POPUP -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h5 class="fw-semibold mb-0">Danh sách hoạt động</h5>
+        <small class="text-muted">Quản lý các hoạt động ngoại khóa</small>
+      </div>
+
+      <!-- Nút này CHỈ để MỞ popup lên, không làm gì khác.
+           data-bs-toggle="modal" + data-bs-target="#modalThemHoatDong"
+           là 2 thuộc tính có sẵn của Bootstrap, tự hiểu "bấm vào thì mở popup
+           có id #modalThemHoatDong" - hoàn toàn không cần JavaScript -->
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalThemHoatDong">
+        + Thêm hoạt động
+      </button>
+    </div>
+
+    <!-- BẢNG DANH SÁCH - DỮ LIỆU TĨNH, viết cứng sẵn trong HTML -->
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+          <input type="text" class="form-control form-control-sm" style="width: 240px" placeholder="Tìm tên hoạt động, CLB..." />
+          <div class="d-flex gap-1">
+            <button class="btn btn-sm btn-success">Tất cả</button>
+            <button class="btn btn-sm btn-outline-secondary">Sắp diễn ra</button>
+            <button class="btn btn-sm btn-outline-secondary">Đang diễn ra</button>
+            <button class="btn btn-sm btn-outline-secondary">Hoàn thành</button>
+          </div>
+        </div>
+
+        <table class="table table-sm table-hover">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>HOẠT ĐỘNG</th>
+              <th>CÂU LẠC BỘ</th>
+              <th>HÌNH THỨC</th>
+              <th>TRẠNG THÁI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td><td>Hackathon 2026</td><td>CLB IT</td><td>Trực tiếp</td>
+              <td><span class="badge bg-warning text-dark">Sắp diễn ra</span></td>
+            </tr>
+            <tr>
+              <td>2</td><td>Workshop UI/UX</td><td>CLB IT</td><td>Trực tuyến</td>
+              <td><span class="badge bg-info text-dark">Đang diễn ra</span></td>
+            </tr>
+            <tr>
+              <td>3</td><td>Ngày hội thể thao</td><td>CLB Thể thao</td><td>Trực tiếp</td>
+              <td><span class="badge bg-success">Hoàn thành</span></td>
+            </tr>
+            <tr>
+              <td>4</td><td>Triển lãm tranh</td><td>CLB Nghệ thuật</td><td>Trực tiếp</td>
+              <td><span class="badge bg-warning text-dark">Sắp diễn ra</span></td>
+            </tr>
+            <tr>
+              <td>5</td><td>Ngày hội tình nguyện</td><td>CLB Tình nguyện</td><td>Trực tiếp</td>
+              <td><span class="badge bg-danger">Đã hủy</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================== POPUP (MODAL) - CHỈ ĐỂ HIỂN THỊ ================== -->
+  <!-- Toàn bộ phần dưới đây là giao diện tĩnh, các nút Hủy/Lưu không xử lý gì,
+       chỉ có nút X và nút Hủy là tự đóng popup được (do Bootstrap có sẵn) -->
+  <div class="modal fade" id="modalThemHoatDong" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title fw-semibold">Đăng ký hoạt động mới</h5>
+          <!-- nút X: tự đóng popup nhờ data-bs-dismiss, không cần JS riêng -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Tên hoạt động</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Nhập tên hoạt động" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Câu lạc bộ</label>
+            <select class="form-select form-select-sm">
+              <option value="">Chọn câu lạc bộ</option>
+              <option>CLB IT</option>
+              <option>CLB Thể thao</option>
+              <option>CLB Nghệ thuật</option>
+              <option>CLB Tình nguyện</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Hình thức</label>
+            <div class="d-flex gap-3 pt-1">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="hinhthuc" id="tructiep" checked>
+                <label class="form-check-label" for="tructiep">Trực tiếp</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="hinhthuc" id="tructuyen">
+                <label class="form-check-label" for="tructuyen">Trực tuyến</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Trạng thái</label>
+            <select class="form-select form-select-sm">
+              <option>Sắp diễn ra</option>
+              <option>Đang diễn ra</option>
+              <option>Hoàn thành</option>
+              <option>Đã hủy</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <!-- nút Hủy: tự đóng popup nhờ data-bs-dismiss, không cần JS -->
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Hủy</button>
+          <!-- nút Lưu: KHÔNG có chức năng gì, chỉ để hiển thị cho giống đề -->
+          <button type="button" class="btn btn-success btn-sm">Lưu</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- ================== HẾT POPUP ================== -->
+
+  <!-- FOOTER -->
+  <footer class="border-top bg-white mt-3 px-3 py-2 d-flex justify-content-between align-items-center">
+    <small class="text-muted">CSE391 — Layout dọc mẫu (đầy đủ thành phần - bản Modal tĩnh)</small>
+    <small class="text-muted">Họ tên SV: __________________ | Mã SV: __________</small>
+  </footer>
+
+  <!-- Chỉ cần file JS của Bootstrap để popup mở/đóng được, không cần app.js -->
+  <script src="css/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="data/data.js"></script>
+</body>
+</html>
